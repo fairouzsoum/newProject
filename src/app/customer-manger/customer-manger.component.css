@@ -1,0 +1,14 @@
+.navStyle {
+  padding: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 30%;
+  width: 50%;
+}
+a {
+  margin: 10px;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+}
