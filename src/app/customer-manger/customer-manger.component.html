@@ -1,6 +1,6 @@
 <nav class="navStyle">
   <a
-    [routerLink]="['customerManger']"
+    [routerLink]="['/customerManger']"
     routerLinkActive="router-link-active"
     (click)="displayCustomers()"
     >Customers</a
@@ -9,7 +9,19 @@
   <a [routerLink]="['#']" routerLinkActive="router-link-active">About</a>
   <a [routerLink]="['#']" routerLinkActive="router-link-active">Login</a>
 </nav>
-
-<ul>
-  <li *ngFor="let customer of customers">{{ customer.firstname }}</li>
-</ul>
+<fd-table>
+  <fd-table-header>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Phone</th>
+    <th>Address</th>
+  </fd-table-header>
+  <fd-table-body>
+    <tr *ngFor="let customer of listCust">
+      <td>{{ customer.firstname }}</td>
+      <td>{{ customer.lastname }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>{{ customer.address }}</td>
+    </tr>
+  </fd-table-body>
+</fd-table>

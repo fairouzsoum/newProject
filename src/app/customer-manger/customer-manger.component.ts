@@ -10,17 +10,16 @@ import { IUser } from '../models/user.model';
 export class CustomerMangerComponent implements OnInit {
   // tslint:disable-next-line: variable-name
   constructor(private _serviceCustomersManger: CustomersService) {}
-  public customers;
+
   public listCust: IUser[];
   public messageError: string;
   ngOnInit() {}
   public displayCustomers() {
-    this.customers = this._serviceCustomersManger
+    this._serviceCustomersManger
       .getCustomers()
       .subscribe(
         res => (this.listCust = res),
         err => (this.messageError = err)
       );
-    console.log(this._serviceCustomersManger.getCustomers());
   }
 }
