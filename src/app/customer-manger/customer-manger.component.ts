@@ -10,14 +10,21 @@ import { Router } from '@angular/router';
 })
 export class CustomerMangerComponent implements OnInit {
   // tslint:disable-next-line: variable-name
-  constructor(private _serviceCustomersManger: CustomersService, private _router: Router) {}
-  public customers;
+  constructor(
+// tslint:disable-next-line: variable-name
+    private _serviceCustomersManger: CustomersService,
+// tslint:disable-next-line: variable-name
+    private _router: Router
+  ) {}
+
   public listCust: IUser[];
   public messageError: string;
-  ngOnInit() {}
+  ngOnInit() {
+   this. displayCustomers();
+  }
   public displayCustomers() {
     this._router.navigate(['customerManger']);
-    this.customers = this._serviceCustomersManger
+    this._serviceCustomersManger
       .getCustomers()
       .subscribe(
         res => (this.listCust = res),
